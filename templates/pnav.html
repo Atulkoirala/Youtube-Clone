@@ -1,0 +1,38 @@
+<div class="navbar navbar-expand-lg bg navbar-light ">
+    <!-- <img src="../media/logo.jpg" width="37" height="37" alt="">class="active animated infinite heartBeat delay-3s" -->
+  <a class="active" href="/home/"><div >VideoTube</div></a>
+  <li class="nav-link">
+    <a href="#">Contact</a>
+  </li>
+    <ul class="nav">
+        {% if user.is_authenticated %}
+        
+        <li>
+            <a class="nav-link disabled" href="#"> <script>
+                var now = new Date();
+          var hrs = now.getHours();
+          var ap = "AM";
+          var msg = "";
+          
+          if (hrs >  5) msg = "Good Morning";
+          if (hrs >  11) msg = "Good Afternoon";
+          if (hrs > 16) msg = "Good Evening";      
+          if (hrs > 19) msg = "Good Night";        
+          
+          document.write(msg);
+          
+              </script> {{user.username}}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/userprofile/{{user.pk}}">Profile</a>
+        </li>
+        <li>
+            <a class="nav-link" href="/update/{{user.pk}}">Profile Update</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout/">Logout</a>
+        </li>
+        {% endif %}
+      </ul>
+</div>
+</div>

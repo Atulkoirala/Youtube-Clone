@@ -1,0 +1,134 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        html{
+            overflow: hidden;
+            height: 100vh;
+            }
+        body{
+            height: 100vh;
+            margin-top: 0px;
+            margin-right: 0px;
+            top: 0;
+            padding: 0px;
+            background-size: block;
+            animation-name: example;
+            background:url('/media/reg.jpg');
+            animation-duration: 16s;
+            animation-iteration-count: infinite;
+            background-size: 100% 100%; 
+        }
+        @keyframes example {
+            25%   {background-image:url('/media/reg.jpg');}
+            50%  {background-image:url('/media/reg1.jpg');}
+            75%  {background-image:url('/media/reg2.jpg');}
+            100% {background-image:url('/media/reg3.jpg');}
+        }
+        h1{
+            float: left;
+            margin-top: 30px;
+            margin-right:30px;
+            background-color: wheat;
+            color: rgb(255, 0, 0)(161, 43, 43);
+            font-size: 30px;
+            font-family:cursive;
+        }
+        .box h3{
+            text-align: center;
+            color: purple;
+            margin-bottom: 2px;
+            margin-top: 0px;
+            bottom: 0;
+            font-size: 35px;
+        }
+        .box {
+            display: block;
+            margin:0cm;
+            padding: 0px;
+            float: right;
+            background-color:rgb(45, 223, 230);
+            width: 350px;
+            border: 2px solid rgb(204, 87, 87);
+            height: 100%;
+        }
+        label{
+            color: black;
+            font-size: 25px;
+            margin: 2px;
+            margin-left: 10px;
+            color:rgb(25, 0, 253)
+        }
+        input{
+            color: black;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 12px;
+            width: 95%;
+            margin: 2px;
+            margin-left: 5px;
+            box-sizing: 30px;
+        }
+        button{
+            display: block;
+            margin-left: 130px;
+            margin-top: 0;
+            margin-bottom: 0;
+            background-color: salmon;
+            padding: 2px;
+            font-size: 22px;
+        }
+        h2{
+            font-size: 20px;
+            color:rgb(88, 27, 27);
+            text-align: center;
+        }
+        #hint_id_username{
+            font: 20px;
+            color: rgb(24, 70, 22);
+            margin-left: 5px;
+            font-size:16px;
+        }
+        #hint_id_password2{
+            font: 20px;
+            color: rgb(24, 70, 22);
+            margin-left: 5px;
+            font-size:16px;
+        }
+        #hint_id_password1{
+            font: 20px;
+            color: rgb(24, 70, 22);
+            margin: 0px;
+            font-size:16px;
+        }
+        #error_1_id_username{
+            background-color: rgb(5, 3, 3);
+            color: rgb(255, 0, 0);
+            text-align: center;
+            margin:4px;
+        }
+        #error_1_id_password2{
+            background-color: rgb(5, 2, 2);
+            color: rgb(255, 0, 0);
+            text-align: center;
+            margin:4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>VideoTube</h1><br>
+    <div class="box">
+        <h3>Registration</h3>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" value="submit">Submit</button>
+        </form>
+    </div> 
+    <h3>Wants to Go back to <a href="/">Login</a>?</h3><br> 
+</body>
+</html>

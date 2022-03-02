@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <title>VideoTube</title>
+    <style>
+        .bg {
+            background: #11cfbf!important;
+        }
+        
+        body {
+            background-color: white;
+        }
+        
+        nav a {
+            font-size: 18px;
+            color: rgb(255, 0, 0);
+            margin-left: 0px;
+            margin-right: 0px;
+            font-family: Comic Sans MS;
+            font-weight: 900;
+            text-decoration: none;
+        }
+        
+        .nav-item.dropdown {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        
+        .active {
+            font-size: 33px;
+            color: rgb(0, 0, 0);
+            margin: 10px;
+            font-family: Comic Sans MS;
+            font-weight: 900;
+        }
+        
+        .form-inline input[type=search] {
+            width: 245px;
+            border: 2px solid green;
+            font-size: 17px;
+        }
+        
+        ul {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        
+        video {
+            width: 20%;
+            height: 30vh;
+        }
+        
+        .media.content-section {
+            display: inline-block;
+            width: 32%;
+            height: 90%;
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-right: 1px;
+            margin-bottom: 2px;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        
+        .media.content-section1 {
+            display: inline-block;
+            width: 97%;
+            height: 100%;
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-right: 1px;
+            margin-bottom: 2px;
+            border: 2px solid rgb(0, 0, 0);
+        }
+        
+        .media.content-section:hover {
+            background-color: rgb(181, 176, 176);
+        }
+        
+        .media-body {
+            margin: 5px;
+        }
+        
+        .media-body1 {
+            width: 100%;
+        }
+        
+        .article-title {
+            margin-top: 5px;
+        }
+        
+        .article-metadata {
+            display: block;
+            margin: auto;
+        }
+        
+        .line {
+            background-color: rgb(32, 30, 30);
+        }
+        
+        .line a {
+            text-align: center;
+            font-size: 33px;
+            color: wheat;
+            padding: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            animation-name: example;
+            animation-iteration-count: infinite;
+            animation-duration: 4s;
+        }
+        
+        @keyframes example {
+            25% {
+                color: rgb(149, 0, 255);
+            }
+            50% {
+                color: rgb(30, 255, 0);
+            }
+            75% {
+                color: rgb(255, 29, 9);
+            }
+            100% {
+                color: yellow
+            }
+        }
+        
+        h5 {
+            font-size: 20px;
+            color: Red;
+            padding: 7px;
+        }
+        
+        .chatbox {
+            background-color: green;
+            width: 20%;
+        }
+        
+        #datep {
+            color: rgb(27, 141, 74);
+            margin: 3px;
+        }
+        
+        footer {
+            position: absolute;
+            clear: both;
+            padding: 20px;
+            text-align: center;
+            background: yellow;
+            color: blue;
+            width: 100%;
+        }
+        
+        h6 {
+            display: block;
+            margin: initial;
+            font-size: 50px;
+            text-align: center;
+            color: red;
+            background-color: black;
+        }
+        
+        h2 {
+            color: indigo;
+            font-family: Comic Sans MS;
+            margin-top: 1px;
+            margin-left: 7px;
+            margin-bottom: 0px;
+        }
+        
+        h3 {
+            color: indigo;
+            font-family: Comic Sans MS;
+            width: 100%;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 1px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+        }
+        
+        .dropdown-item:hover {
+            width: 90%;
+            color: rgb(24, 24, 154);
+        }
+        
+        ul li {
+            font-size: 30px;
+            font-weight: 600;
+            color: rgb(24, 110, 24)
+        }
+        
+        #leftbox {
+            float: left;
+            width: 75%;
+            height: 100%;
+            background-color: white;
+        }
+        
+        #rightbox {
+            float: right;
+            width: 24.5%;
+            height: 100%;
+            background-color: wheat;
+            border: 0.5px solid rgb(0, 0, 0);
+        }
+        
+        .article-metadata .text {
+            margin-left: 4px;
+            color: rgb(234, 2, 255);
+        }
+        
+        .dropdown-menu form button {
+            width: 170px;
+        }
+        
+        .main {
+            padding: 16px;
+            margin-top: 70px;
+            height: 100%;
+            /* Used in this example to enable scrolling */
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "main.html" %}
+    <!-- <h7 id="datep"></h7> -->
+
+    <div class="main">
+        <div class="line">
+            <h5><a class="nav-link" href="/home/video/post/">👉Post Your Video Here👈</a></h5>
+        </div>
+        <div id="boxes">
+            <div id="rightbox">
+                <article class="media content-section1">
+                    <h3>Chat Box</h3>
+                    <div class="media-body1">
+
+                    </div>
+                    <div class="article-metadata1">
+                    </div>
+                </article>
+            </div>
+            <div id="leftbox">
+                {% for v in vdo %}
+                <article class="media content-section">
+                    <div class="media-body">
+                        <a href="/userprofile/{{v.user.pk}}"><img src="{{ v.user.profile.Profile_Pic.url }}" width="50" height="50" alt="" class="rounded-circle"> <label>{{ v.user.username }}</label></a>
+                    </div>
+                    <a href="/home/video/{{v.pk}}"><video class="embed-responsive embed-responsive-1by1" playsinline="playsinline">
+              <source src="/media/{{v.path}}" width="55" height="55">
+            </video></a>
+                    <div class="article-metadata">
+                        <div>
+                            <h2>{{v.title}}</h2>
+                        </div>
+                        <div class='row'>
+                            <div class="col-7"><small class="text">{{v.added_date}}</small></div>
+                            <div class="col-5">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <form action="/home/" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="video_id" value={{v.pk}}>
+                                        <button type="submit" class="btn btn-secondary">Watch later</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <script>
+      let d = new Date();
+      document.getElementById('datep').innerHTML = d;
+      </script> -->
+    <!-- <footer>
+        <h6>Copyright &copy; 2020 </h6>
+    </footer> -->
+</body>
+
+</html>

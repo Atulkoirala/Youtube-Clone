@@ -1,0 +1,101 @@
+<!-- {% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>VideoTube</title>
+    <style>
+        body{
+            background-color: rgb(165, 207, 165);
+            margin: 25px;
+          }
+          h3{
+              margin: 10px;
+              text-align: center;
+              color: rgb(70, 0, 247);
+          }
+          .container{
+              background-color: rgb(247, 206, 130);
+              border: 2px solid black;
+              padding: 35px;
+          }
+    label{
+        width: 100%;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 0px;
+    }
+    input{
+        width:100%;
+        border: 2px solid black;
+        box-sizing: 30px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+    }
+    button{
+        margin-top: 15px;
+        background-color: rgb(2, 150, 248);
+        padding: 7px;
+    }
+    .row{
+      background-color: wheat;
+      margin-top: 10px;
+      margin-left: 40px;
+      width: 93%;
+    }
+    </style>
+  </head>
+  <body>
+    {% for message in messages %}
+    <h1>{{message}}</h1>
+    {% endfor %}
+
+              <h3>Comment Here</h3>
+                <div class="container">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <label>Comment<br></label>
+                <input type="text" name = "text" placeholder="Enter you Comment"><br>
+                <label>Comment with Image<br></label>
+                <input type="file" name = "img" placeholder="Comment Photo" accept="image/*"><br>
+                {% for v in vdos %}
+                <input type="hidden" name = "video" value="{{v.pk}}">
+                <button type="submit" value="submit">Comment</button>
+                </form>
+                </div>
+                <div class="row">
+                  {% endfor %}
+                  {% for c in coment %}
+                  <div class="row">
+                    <div class="col-md-1"><a href="/userprofile/{{c.user.pk}}"><img src="{{ c.user.profile.Pic.url }}" width="50" height="50" alt="" class="rounded-circle"></a></div>
+                <div class="col-md-11"><div><p><b>{{c.user.username}}</b> at {{c.added_date}}</p></div><p>{{ c.text }} <img src="/media/{{c.img}}" width="80" height="80" alt=""></div>
+              </div>
+                  {% endfor %}
+                </div>
+                
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      window.onscroll = function() {myFunction()};
+      
+      var nav = document.getElementById("nav");
+      var sticky = nav.offsetTop;
+      
+      function myFunction() {
+        if (window.pageYOffset >= sticky) {
+          nav.classList.add("sticky")
+        } else {
+          nav.classList.remove("sticky");
+        }
+      }
+      </script>
+  </body>
+</html> -->

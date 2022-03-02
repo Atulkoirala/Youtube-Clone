@@ -1,0 +1,368 @@
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>VideoTube</title>
+    <style>
+    .bg{
+      background:#11cfbf!important;
+    }
+    body{
+      background-color: white;
+    }
+    nav a{
+      font-size: 18px;
+      color: rgb(255, 0, 0);
+      margin-left: 0px;
+      margin-right: 0px;
+      font-family: Comic Sans MS ;
+      font-weight: 900;
+      text-decoration: none;
+  }
+    .active{
+        font-size: 30px;
+        color: rgb(0, 0, 0);
+        margin: 10px;
+        font-family: Comic Sans MS ;
+        font-weight: 900;
+    }
+    .form-inline input[type=search] {
+        width: 245px;
+        border: 2px solid green;
+        font-size: 17px;
+        margin-left: 18px;
+        margin-right: 18px;
+      }
+    ul{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    video{
+      width: 90%;
+      height: 30vh;
+
+    }
+    .media.content-section{
+      display:inline-block;
+      width: 97%;
+      height: 100%;
+      margin-top: 5px;
+      margin-left: 10px;
+      margin-right: 1px;
+      margin-bottom: 2px;
+    }
+    .media.content-section1{
+      display:inline-block;
+      width: 97%;
+      height: 100%;
+      margin-top: 5px;
+      margin-left: 5px;
+      margin-right: 1px;
+      margin-bottom: 2px;
+      border: 2px solid rgb(0, 0, 0);
+    }
+    .media.content-section a{
+      margin-right: 130px;
+    }
+    .media.content-section1:hover{
+      background-color: rgb(181, 176, 176);
+    }
+    .media-body{
+      display:inline-flex;
+      width: 100%;
+    }
+    .media-body1{
+      width: 100%;
+    }
+    .article-title{
+      margin-top: 5px;
+    }
+    .article-metadata{
+      margin-top: 7px;
+      margin-left: 10px;
+      margin-right: 3px;
+    }
+    .article-metadata video{
+      width: 99%;
+      height: 61vh;
+    }
+    footer{
+      position: absolute;
+      clear: both;
+      padding: 20px;
+      text-align: center;
+      background: yellow;
+      color:blue;
+      width: 100%;
+    }
+    h6{
+      display: block;
+      margin: initial;
+      font-size: 50px;
+      text-align: center;
+      color:red;
+      background-color: black;
+    }
+    .article-metadata .text{
+      margin-left: 4px;
+      color: rgb(234, 2, 255);
+    }
+    #top{
+      background-color: white;
+      margin-top: 3px;
+      margin-bottom: 0px;
+      width: 100%;
+      text-align: center;
+      font-size: 22px;
+    }
+    #top a{
+      width: fit-content;
+      margin-right: 150px;
+    }
+    #rightbox{ 
+      float:left; 
+      width:70%; 
+      height:100%; 
+      background-color: rgb(39, 38, 38);
+    }  
+    #leftbox{ 
+      float:right;   
+      margin-left: 10px;
+      width:29%; 
+      height:100%; 
+      background-color:white;
+    }
+    .media-body h2{
+      color: rgb(252, 227, 227);
+      font-family: Comic Sans MS;
+      margin-top: 1px;
+      margin-left: 7px;
+      margin-bottom: 0px;
+    }
+    h2{
+      color: rgb(76, 21, 144);
+      font-family: Comic Sans MS;
+      margin-top: 1px;
+      margin-left: 7px;
+      margin-bottom: 0px;
+    }
+    .article-metadata1.text{
+      margin-left: 4px;
+      color: rgb(234, 2, 255);
+    }
+    .article-metadata1 a{
+      margin-left: 7px;
+      margin-top: 10px;
+    }
+    .article-metadata1 small{
+      color: rgb(234, 2, 255);
+    }
+    .article-data p{
+      margin-top: 2px;
+      margin-left: 12px;
+      color: rgb(57, 115, 18);
+    }
+    .article-data h3{
+      font-size: 35px;
+      color:white;
+      margin-top: 4px;
+      margin-left: 7px;
+    }
+    .article-data3 h3{
+      font-size: 35px;
+      color:white;
+      margin-top: 4px;
+      margin-left: 7px;
+    }
+    .article-data a{
+      margin-left: 12px;
+      margin-top: 3px;
+      font-size: 20px;
+    }
+    .article-data3{
+      background-color: rgb(83, 82, 82);
+    }
+    .row{
+      background-color: rgb(243, 230, 205);
+      margin-top: 10px;
+      margin-left: 20px;
+      width: 95%;
+      border: 2px solid rgb(58, 80, 7);
+    }
+    h7{
+      font-size: 28px;
+    }
+    button{
+      display: inline;
+      background-color: rgb(112, 214, 221);
+      color: rgb(255, 0, 128);
+      padding: 5px;
+      font-size: 15px;
+      margin-left: 0px;
+      margin-top: 5px;
+    }
+    input{
+      display: inline;
+      width: 100%;
+      margin: 0px;
+    }
+    .container{
+      border: 2px solid rgb(83, 82, 82);
+      width: 100%;
+      padding: 20px;
+    }
+    label{
+      font-size: 15px;
+      color: blanchedalmond;
+    }
+    .topper{
+      background-color: ;
+    }
+    .main {
+      padding: 16px;
+      margin-top: 70px;
+      height: 100%; /* Used in this example to enable scrolling */
+    }
+    </style>
+  </head>
+  <body>
+    {% include "main.html" %}
+
+    <div class="main">
+      {% for message in messages %}
+    <h7>{{message}}</h7>
+    {% endfor %}
+    {% for v in vdos %}
+    <div id="top">
+      {% if v.user == user %}
+  <a href="/home/video/{{v.pk}}/update">Update Video</a>
+  <a href="/home/video/{{v.pk}}/delete">Delete Video</a>
+  {% endif %}
+  {% endfor %}
+    </div>
+    <div id="boxes">
+      <div id="leftbox">
+        {% for v in vdo %}
+      <article class="media content-section1">
+        <div class="media-body1">
+          <h2>{{v.title}}</h2>
+            <small class="text-muted">{{v.profile.added_date}}</small>
+          </div>
+          <a href="/home/video/{{v.pk}}"><video class="embed-responsive embed-responsive-1by1" playsinline="playsinline">
+            <source src="/media/{{v.path}}" width="55" height="55">
+          </video></a>
+        <div class="article-metadata1">
+          <a href="/userprofile/{{v.user.pk}}"><img src="{{ v.user.profile.Profile_Pic.url }}" width="50" height="50" alt="" class="rounded-circle"></a>
+          <small class="text">{{v.added_date}}</small>
+        </div>
+      </article>
+      {% endfor %}
+      </div>  
+      {% for v in vdos %}
+      <div id="rightbox">
+        <br class="media content-section">
+          <div class="media-body">
+            <a href="/userprofile/{{v.user.pk}}"><img src="{{ v.user.profile.Profile_Pic.url }}" width="60" height="60" alt="" class="rounded-circle"></a> 
+            <h2 class="article-title" >{{v.title}}</h2>
+          </div>
+            <div class="article-metadata">
+              <video class="embed-responsive embed-responsive-1by1" poster="thumbnail.jpg" controls>
+                <source src="/media/{{v.path}}" type="video/mp4">
+              </video>
+              <small class="text">{{v.added_date}}</small>
+            </div>
+            <div class="article-data">
+              <div class="article-data">
+                <form action="/home/video/{{v.pk}}/#" method="POST">
+                  {% csrf_token %}
+                  <button type="submit" name="video_id" class="btn btn-danger" value="{{v.pk}}">like</button>
+                  <!-- <button type="submit" name="video_id" class="btn btn-danger" value="{{v.pk}}">Unlike</button> -->
+                </form>
+                <p>{{v.like.count}} likes</p>
+                </div>
+              <h3>Description</h3>
+              <p class="article-content">{{v.description}}</p>
+            </div>
+            {% endfor %}
+            <div class="article-data3">
+              <h3>Comment</h3>
+                <div class="container">
+                  <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{formc.errors}}
+                    {{ formc|crispy }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+                <div class="row">
+                  {% for c in coment %}
+                  <div class="row">
+                    <div class="col-md-1.8"><a href="/userprofile/{{c.user.pk}}"><img src="{{ c.user.profile.Profile_Pic.url }}" height="55" width="55" alt="" class="rounded-circle"></a></div>
+                <div class="col-md-10"><div class="toper"><p><b>{{c.user.username}}</b> at {{c.added_date|timesince}}</p></div><p>{{ c.text }} <img src="/media/{{c.img}}" width="80" height="80" alt="">
+                  <div class="reply">
+                    <div id="top">
+                      {% if c.user == user %}
+                  <a href="/home/video/{{c.pk}}/cupdate">Update</a>
+                  <a href="/home/video/{{c.pk}}/cdelete">Delete</a>
+                  {% endif %}
+                    </div>
+                    <a class="btn btn-success btn" type="button" data-toggle="collapse" data-target="#reply{{c.id}}" aria-expanded="false" aria-controls="collapseExample">
+                      Reply
+                    </a>
+                  <div class="collapse" id="reply{{c.id}}">
+                    {% for r in c.replies.all %}
+                    <div class="media content-section">
+                      {% if r.user == user %}
+                  <a href="/home/video/{{r.pk}}/cupdate">Update</a>
+                  <a href="/home/video/{{r.pk}}/cdelete">Delete</a>
+                  {% endif %}
+                  {% if v.user == user %}
+                      <div class="row">
+                        <div class="col-md-2"><a href="/userprofile/{{r.user.pk}}"><img src="{{ r.user.profile.Profile_Pic.url }}" height="55" width="55" alt="" class="rounded-circle"></a></div>
+                        <div class="col-md-10"><div class="toper"><p><b>{{r.user.username}}</b> at {{r.added_date|timesince}}</p></div><p>{{ r.text }} <img src="/media/{{r.img}}" width="80" height="80" alt="">
+                      </div>
+                    </div>
+                    {% else %}
+                      <div class="row">
+                        <div class="col-md-2"><a href="/userprofile/{{r.user.pk}}"><img src="{{ r.user.profile.Profile_Pic.url }}" height="55" width="55" alt="" class="rounded-circle"></a></div>
+                        <div class="col-md-10"><div class="toper"><p><b>{{r.user.username}}</b> at {{r.added_date|timesince}}</p></div><p>{{ r.text }} <img src="/media/{{r.img}}" width="80" height="80" alt="">
+                      </div>
+                    </div>
+                    {% endif %}
+                  </div>
+                  <div class="container3">
+                    <form method="post" action="" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      {{formc.errors}}
+                      {{ formc|crispy }}
+                      <input type="hidden" name="parent_id" value="{{c.pk}}">
+                      <button type="submit" value="Reply" class="btn btn-primary">Reply</button>
+                  </form></div>
+                  {% endfor %}
+                  </div>
+              </div></div>
+            </div>
+                  {% endfor %}
+            </div>
+            </div>
+      </div></div>
+        </article>
+      </div>
+    </div>
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script></script>
+  </body>
+</html>

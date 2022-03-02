@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            overflow: hidden;
+            height: 100vh;
+            }
+        body{
+            height: 100vh;
+            margin-top: 0px;
+            margin-right: 0px;
+            top: 0;
+            padding: 0px;
+            background-size: block;
+            animation-name: example;
+            background:url('/media/pre.jpg');
+            animation-duration: 16s;
+            animation-iteration-count: infinite;
+            background-size: 100% ; 
+        }
+        @keyframes example {
+            25%   {background-image:url('/media/pre.jpg');}
+            50%  {background-image:url('/media/pre1.jpg');}
+            75%  {background-image:url('/media/pre2.jpg');}
+            100% {background-image:url('/media/pre3.jpg');}
+        }
+        h1{
+            float: left;
+            margin-top: 30px;
+            margin-right:30px;
+            background-color: wheat;
+            color: rgb(255, 0, 0)(161, 43, 43);
+            font-size: 30px;
+            font-family:cursive;
+        }
+        .box h3{
+            text-align: center;
+            color: purple;
+            margin-bottom: 2px;
+            margin-top: 0px;
+            bottom: 0;
+            font-size: 35px;
+        }
+        .box {
+            position: absolute;
+            top: 0px;
+            float: right;
+            background-color:rgb(45, 223, 230);
+            width: 350px;
+            border: 2px solid rgb(204, 87, 87);
+            height: 100%;
+        }
+        label{
+            color: black;
+            font-size: 18px;
+            margin-top: 0px;
+            margin-left: 10px;
+            color:rgb(25, 0, 253)
+        }
+        input{
+            color: black;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 12px;
+            width: 95%;
+            margin-top: 0px;
+            margin-left: 5px;
+            box-sizing: 30px;
+        }
+        button{
+            display: block;
+            margin-left: 130px;
+            margin-top: 0;
+            margin-bottom: 0;
+            background-color: salmon;
+            padding: 2px;
+            font-size: 22px;
+        }
+        h2{
+            font-size: 20px;
+            color:rgb(88, 27, 27);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    {% for message in messages %}
+    <h4>{{message}}</h4>
+    {% endfor %}
+    <h3>Profile Register</h3>
+    <div class="box">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" value="submit">Submit</button>
+        </form>
+    </div> 
+</body>
+</html>

@@ -1,0 +1,105 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <style>
+        body{
+            animation-name: example;
+            background:url('/media/login.jpg');
+            animation-duration: 16s;
+            animation-iteration-count: infinite;
+            background-size: 100% ; 
+        }
+        h1{
+            background-color: wheat;
+            font-size: 30px;
+            color: rgb(248, 3, 3)(161, 43, 43);
+            font-size: 30px;
+            font-family:cursive;
+            width:fit-content;
+        }
+        @keyframes example {
+            25%   {background-image:url('/media/login.jpg');}
+            50%  {background-image:url('/media/login1.jpg');}
+            75%  {background-image:url('/media/login2.jpg');}
+            100% {background-image:url('/media/login3.jpeg');}
+          }
+          
+        .container h3{
+            text-align: center;
+            color: purple;
+            margin: 3px;
+            font-size: 35px;
+        }
+        .container {
+            display:left;
+            background-color:rgb(45, 223, 230);
+            width: 300px;
+            border: 2px solid rgb(204, 87, 87);
+        }
+        label{
+            color: black;
+            font-size: 35px;
+            margin: 10px;
+            color:rgb(25, 0, 253)
+        }
+        input{
+            color: black;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 12px;
+            width: 90%;
+            margin: 8px;
+            box-sizing: 30px;
+        }
+        button{
+            display: block;
+            margin: auto;
+            background-color: salmon;
+            padding: 5px;
+            box-sizing: 20px;
+            font-size: 25px;
+        }
+        .container a{
+            margin: 10px;
+            font-size: 30px;
+            color:black;
+        }
+        h2{
+            display: block;
+            margin: initial;
+            font-size: 80px;
+            text-align: center;
+            color:red;
+            background-color: black;
+        }
+        .alert li{
+            background-color: rgb(5, 2, 2);
+            color: rgb(255, 0, 0);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>VideoTube</h1>
+    {% for message in messages %}
+    <h1>{{message}}</h1>
+    {% endfor %}
+    <div class="container">
+        <h3>Log In</h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            {% if request.GET.next %}
+                <input type="hidden" name='next' value="{{request.GET.next}}">
+            {% endif %}
+            <button type="submit" value="submit">Log In</button><br>
+            <a href="register/">Sign Up</a><br>
+            <a href="/profile/password-reset/">Forget Password</a>
+        </form>
+    </div>    
+</body>
+</html>

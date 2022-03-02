@@ -1,0 +1,225 @@
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>VideoTube</title>
+    <style>
+        .bg{
+            background:#11cfbf!important;
+        }
+        body{
+            background-color: rgb(226, 209, 209);
+        }
+        a{
+            font-size: 20px;
+            color: rgb(255, 0, 0);
+            margin: 10px;
+            font-family: Comic Sans MS ;
+            font-weight: 900;
+            text-decoration: none;
+        }
+        .active{
+            font-size: 35px;
+            color: rgb(0, 0, 0);
+            margin: 10px;
+            font-family: Comic Sans MS ;
+            font-weight: 900;
+        }
+        .form-inline input[type=search] {
+            width: 250px;
+            border: 2px solid green;
+            font-size: 17px;
+        }
+        .nav{
+            float: right;
+            margin-left: 1px;
+        }
+        .media{
+            margin: 12px;
+
+        }
+        h4{
+            margin-top: 20px;
+            margin-left: 20px;
+            font-family: Courier;
+        }
+        label{
+            color: black;
+            font-size: 20px;
+            margin: 0px;
+            margin-left: 183px;
+            color:rgb(25, 0, 253)
+        }
+        input{
+            color: black;
+            font-size: 18px;
+            border: 2px solid black;
+            border-radius: 12px;
+            margin: 0px;
+            margin-left: 183px;
+            max-width: 420px;
+            box-sizing: 30px;
+            border: 2px solid black;
+        }
+        input[type=text]{
+            border: 2px solid black;
+            border-radius: 12px;
+        }
+        input[type=email]{
+            border: 2px solid black;
+            border-radius: 12px;
+        }
+        input[type=tel]{
+            border: 2px solid black;
+            border-radius: 12px;
+        }
+        .select.form-control{
+            border: 2px solid black;
+            border-radius: 12px;   
+        }
+        #hint_id_username{
+            margin-left: 200px;
+            color:rgb(4, 4, 255);
+        }
+        button{
+            margin-left: 320px;
+            margin-bottom: 20px;
+            padding: 5px;
+            font: 30px;
+            background-color: mediumseagreen;
+        }
+        select{
+            margin-left: 187px;
+            max-width: 250px;
+            border: 2px solid black;
+            border-radius: 12px;
+        }
+        .content.side{
+            width: 40%;
+        }
+        footer{
+            position: absolute;
+            clear: both;
+            padding: 20px;
+            text-align: center;
+            background: yellow;
+            color:blue;
+            width: 100%;
+        }
+        h6{
+            display: block;
+            margin: initial;
+            font-size: 50px;
+            text-align: center;
+            color:red;
+            background-color: black;
+        }
+        h2{
+            font-size: 50px;
+            text-align: center;
+
+        }
+        .media.content-section{
+            display:inline-block;
+            width: 32%;
+            height: fit-content;
+            height: 90%;
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-right: 1px;
+            margin-bottom: 2px;
+            border: 2px solid rgb(0, 0, 0);
+            background-color: rgb(174, 211, 212);
+          }
+          video{
+            width: 20%;
+            height: 30vh;
+          }
+          .article-metadata .text{
+            margin-left: 4px;
+            color: rgb(234, 2, 255);
+          }
+          .media.content-section:hover{
+            background-color: rgb(181, 176, 176);
+          }
+          h3{
+              text-align: center;
+              margin-top: 2px;
+              margin-bottom: 0px;
+          }
+          h7{
+            font-size: 28px;
+            text-align: center;
+            color: rgb(79, 159, 0);
+          }
+        .navbar{
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    {% include "pnav.html" %}
+
+    <!-- main code -->
+    {% for message in messages %}
+    <h7>{{message}}</h7>
+    {% endfor %}
+    {% for v in author %}
+    <div class="column side">
+        <h2 class="text-Primary">Profile Details </h2>
+        <img class="account-img" src="{{ v.user.profile.Cover_pic.url }}" width="100%" height="350" alt="">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ v.user.profile.Profile_Pic.url }}" width="150" height="150" alt="">
+            <div class="media-body">
+                <h4 class="text-secondary">First Name:- {{ v.first_name }}</h4>
+                <h4 class="text-secondary">Middle Name:- {{ v.middle_name }}</h4>
+                <h4 class="text-secondary">Last Name:- {{ v.last_name }}</h4>
+                <h4 class="text-secondary">Date Added:- {{ v.date_added }}</h4>
+                <h4 class="text-secondary">Username:- {{ v.user.username }}</h4>
+                <h4 class="text-secondary">Email:- {{ v.user.email }}</h4>
+                <h4 class="text-secondary">BIO:- {{ v.BIO }}</h4>
+                <h4 class="text-secondary">Contact_Number:- {{ v.Contact_Number }}</h4>
+                <h4 class="text-secondary">Country:- {{ v.Country }}</h4>
+                <h4 class="text-secondary">Address:- {{ v.Address }}</h4>
+                </div>
+            </div>
+        </div>
+    </div> 
+       {% endfor %}
+       <h2 class="text-Primary">Posted Videos </h2>
+       <div class="container">
+        {% for v in vdos %}
+        <article class="media content-section">
+          <div class="media-body">
+            <h3>{{v.title}}</h3>
+            </div>
+            <a href="/home/video/{{v.pk}}"><video class="embed-responsive embed-responsive-1by1" playsinline="playsinline">
+              <source src="/media/{{v.path}}" width="70" height="70">
+            </video></a>
+          <div class="article-metadata">
+            <a href="#/profile/{{v.user.pk}}#"><img src="{{ v.user.profile.Pic.url }}" width="50" height="50" alt="" class="rounded-circle"></a>
+            <small class="text">{{v.added_date}}</small>
+          </div>
+        </article>
+        {% endfor %}
+       </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <footer>
+        <h6>Copyright &copy; 2020 </h6>
+</footer> -->
+  </body>
+</html>

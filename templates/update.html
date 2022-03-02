@@ -1,0 +1,146 @@
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>VideoTube</title>
+    <style>
+        .bg{
+            background:#11cfbf!important;
+        }
+        a{
+            font-size: 20px;
+            color: rgb(255, 0, 0);
+            margin: 10px;
+            font-family: Comic Sans MS ;
+            font-weight: 900;
+            text-decoration: none;
+        }
+        .active{
+            font-size: 35px;
+            color: rgb(0, 0, 0);
+            margin: 10px;
+            font-family: Comic Sans MS ;
+            font-weight: 900;
+        }
+        .form-inline input[type=search] {
+            width: 250px;
+            border: 2px solid green;
+            font-size: 17px;
+        }
+        .nav{
+            float: right;
+            margin-left: 1px;
+        }
+        .media{
+            margin: 12px;
+
+        }
+        h4{
+            margin-top: 20px;
+            margin-left: 20px;
+            font-family: Courier;
+        }
+        label{
+            color: black;
+            font-size: 20px;
+            margin: 0px;
+            margin-left: 183px;
+            color:rgb(25, 0, 253)
+        }
+        input{
+            color: black;
+            font-size: 18px;
+            border: 2px solid black;
+            border-radius: 12px;
+            margin: 0px;
+            margin-left: 183px;
+            max-width: 420px;
+            box-sizing: 30px;
+            border: 2px solid black;
+        }
+        input[type=text]{
+            border: 2px solid black;
+            border-radius: 12px;
+        }
+        input[type=email]{
+            border: 2px solid black;
+            border-radius: 12px;
+        }
+        input[type=tel]{
+            border: 2px solid black;
+            border-radius: 12px;
+        }
+        .select.form-control{
+            border: 2px solid black;
+            border-radius: 12px;   
+        }
+        #hint_id_username{
+            margin-left: 200px;
+            color:rgb(4, 4, 255);
+        }
+        button{
+            margin-left: 320px;
+            margin-bottom: 20px;
+            padding: 5px;
+            font: 30px;
+            background-color: mediumseagreen;
+        }
+        select{
+            margin-left: 187px;
+            max-width: 250px;
+            border: 2px solid black;
+            border-radius: 12px;
+        }
+        .content.side{
+            width: 40%;
+        }
+        footer{
+            position: absolute;
+            clear: both;
+            padding: 20px;
+            text-align: center;
+            background: yellow;
+            color:blue;
+            width: 100%;
+        }
+        h6{
+            display: block;
+            margin: initial;
+            font-size: 50px;
+            text-align: center;
+            color:red;
+            background-color: black;
+        }
+    </style>
+  </head>
+  <body>
+    {% include "pnav.html" %}
+
+    <!-- main code -->
+    <div class="column side">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
+            <button type="submit" value="submit">Update</button>
+        </form>
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <footer>
+        <h6>Copyright &copy; 2020 </h6>
+</footer> -->
+  </body>
+</html>

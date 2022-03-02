@@ -1,0 +1,77 @@
+<style>
+    .navbar {
+        overflow: visible;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+    
+    .navbar .dropdown-menu {
+        z-index: 1;
+    }
+</style>
+<nav class="navbar navbar-expand-lg bg navbar-light">
+    <img src="../media/logo.jpg" width="37" height="37" alt="">
+    <a href="/home/">
+        <div class="active animated infinite heartBeat delay-3s">VideoTube</div>
+    </a>
+    <li class="nav-link">
+        <a href="#">Contact</a>
+    </li>
+    <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categories
+      </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+                {% for c in cats %}
+                <a class="dropdown-item" href="/home/category/{{c.pk}}">{{c.title}}</a> {% endfor %}
+            </li>
+        </div>
+    </div>
+    <form class="form-inline my-2 my-lg-0" method="GET" action="/s/">
+        <input class="form-control mr-sm-2" name="keywords" type="search" value="{{ request.GET.keywords }}" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark" type="submit">Search</button>
+    </form>
+    <ul class="nav">
+        <li class="greeting">
+            <a class="nav-link disabled" href="#">
+                <script>
+                    var now = new Date();
+                    var hrs = now.getHours();
+                    var ap = "AM";
+                    var msg = "";
+
+                    if (hrs > 5) msg = "Good Morning";
+                    if (hrs > 11) msg = "Good Afternoon";
+                    if (hrs > 16) msg = "Good Evening";
+                    if (hrs > 19) msg = "Good Night";
+
+                    document.write(msg);
+                </script> {{user.username}}</a>
+        </li>
+    </ul>
+    <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="rounded-circle account-img" src="{{ user.profile.Profile_Pic.url }}" width="55" height="50" alt="">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="/watchlist">Watch Later</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/userprofile/{{user.pk}}">Profile</a>
+            </li>
+            <li>
+                <a class="nav-link" href="/update/{{user.pk}}">Profile Update</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout/">Logout</a>
+            </li>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+</nav>
